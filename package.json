@@ -1,0 +1,38 @@
+{
+  "name": "fullstack",
+  "version": "1.0.0",
+  "description": "fullastack angular express app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "server": "nodemon index",
+    "client-install": "npm-install --prefix client",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \",npm run server \" \"npm run client\""
+  },
+  "keywords": [
+    "angular",
+    "express"
+  ],
+  "author": "Veronika Yatsenko",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-roles": "^0.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.4",
+    "mongoose": "^6.7.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "passport-with-roles": "^1.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^7.5.0"
+  }
+}
