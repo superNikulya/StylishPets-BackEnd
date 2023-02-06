@@ -1,10 +1,9 @@
 const Product = require('../models/Product')
 const errorHandler = require('../utils/errorHandler')
-const Category = require("../models/Category");
 
 module.exports.getAllProducts = async function (req, res) {
     try {
-        let products = await Product.find({})
+        const products = await Product.find({})
         res.status(200).json(products)
     } catch (e){
         errorHandler(res, e)
@@ -13,19 +12,17 @@ module.exports.getAllProducts = async function (req, res) {
 module.exports.getByCategoryId = async function (req, res) {
     try {
         const products = await Product.find({
-            categoryId: req.params.categoryId,
+            category: req.params.category,
         })
         res.status(200).json(products)
     } catch (e) {
         errorHandler(res, e)
     }
 }
-module.exports.getByCategoryName = async function (req, res) {
+module.exports.getById = async function (req, res) {
     try {
-        const products = await Product.find({
-            categoryName: req.body.categoryName
-        })
-        res.status(200).json(products)
+        const product = await Product.findById(req.params.id)
+            res.status(200).json(product)
     } catch (e) {
         errorHandler(res, e)
     }
@@ -36,8 +33,7 @@ module.exports.create = async function (req, res) {
             name: req.body.name,
             price: req.body.price,
             characteristic: req.body.characteristic,
-            categoryId: req.body.categoryId,
-            categoryName: req.body.categoryName,
+            category: req.body.category,
             imageSrc: req.file ? req.file.path : '',
     }).save()
         res.status(201).json(product) //полсе сохарнения в базу данных придет статутс и ами позиции

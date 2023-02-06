@@ -15,7 +15,6 @@ mongoose.connect(keys.mongoURI)
      .catch(error => console.log(error));
 //данный метод коннект возвращается промис, у любого промиса есть метод then
 // который будет вызван в том случае если у нас соединение с базой прошло успешно
-const analyticsRoutes = require('./routes/analytics');
 const authRoutes = require('./routes/auth');
 const categoryRoutes = require('./routes/category');
 const orderRoutes = require('./routes/order');
@@ -44,13 +43,11 @@ app.use(bodyParser.json()) // обращаемся к методу json() ген
 
 
 
-app.use('/api/analytics', analyticsRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/category', categoryRoutes)
 app.use('/api/order', orderRoutes)
 app.use('/api/product', productRoutes)
 // тут мы даем название url (путь), а затем добавляем его значение authRoutes
-
 
 
 
