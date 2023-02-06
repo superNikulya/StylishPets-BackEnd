@@ -15,16 +15,12 @@ const productSchema = new Schema({
         type:Number,
         required: true
     },
-    categoryId:{
+    category:{
         ref: 'categories',
-        type: Schema.Types.ObjectId
-    },
-    categoryName:{
-        type: String,
+        type: Schema.Types.ObjectId,
     },
     user:{
         ref: 'users',
-        required: false,
         type: Schema.Types.ObjectId
     },
     characteristic: {

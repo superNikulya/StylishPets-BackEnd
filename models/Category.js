@@ -3,19 +3,19 @@ const {SchemaTypes} = require("mongoose")
 const Schema = mongoose.Schema
 // нам необходимо создать схему, которуая будет описывать нашу модель посредством переменной мангуса
 const categorySchema = new Schema({
-name: {
-    type: String,
-    required: true
-},
-imageSrc: {
-    type:String,
-    default: ''
-},
-user:{
-    required: false,
-    ref: 'users',
-    type: Schema.Types.ObjectId
-},
+    name: {
+        type: String,
+        required: true
+    },
+    imageSrc: {
+        type:String,
+        default: ''
+    },
+    user:{
+        required: false,
+        ref: 'users',
+        type: Schema.Types.ObjectId
+    },
     characteristic: {
         type: String,
         default: ''

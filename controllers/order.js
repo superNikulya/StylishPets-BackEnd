@@ -19,7 +19,7 @@ const errorHandler = require ('../utils/errorHandler')
          query.date ['$lte'] = req.query.end
      }//меньше или равно
          //мы хотим полкчить все заказы у которых дата  меньше либо равна той дате,
-         // которую мы обозначили в кажестве конца
+         // которую мы обозначили в качестве конца
          if(req.query.order) {
              query.order = +req.body.order //мы кладем в квери ордер значение из реквест боди ордер
          }
@@ -27,11 +27,9 @@ const errorHandler = require ('../utils/errorHandler')
              const orders = await Order
          .find (query)
          .sort ({date: -1})
-         .skip (+req.query.offset)//locallost:300/api/order(get)?offset=2&limit=5 означает,что отступ 2
+         .skip (+req.query.offset) //означает,что отступ 2
          .limit(+req.body.limit)
          // (Сколько элементов нам нужно пропустить )
-         // а количество забраных элементов 5
-         // что мы заюираем каких-то 5 элементов
              res.status(200).json(orders)
      } catch (e) {
          errorHandler(res, e)
