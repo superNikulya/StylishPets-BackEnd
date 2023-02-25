@@ -37,8 +37,7 @@ module.exports.create = async function (req, res) {
             imageSrc: req.file ? req.file.path : '',
     }).save()
         res.status(201).json(product)
-    } catch (e)
-    {
+    } catch (e) {
         errorHandler(res, e)
     }
 }
@@ -53,7 +52,7 @@ module.exports.remove = async function (req, res) {
     }
 }
 module.exports.update =  async function (req, res) {
-    const updated= {
+    const updated = {
         name: req.body.name,
         price: req.body.price,
         characteristic: req.body.characteristic
@@ -67,9 +66,7 @@ module.exports.update =  async function (req, res) {
             {new: true}
         )
         res.status(200).json(product)
-    }
-catch(e)
-    {
+    } catch(e) {
         errorHandler(res, e)
     }
 }

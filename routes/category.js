@@ -4,6 +4,7 @@ const upload = require('../middleware/upload')
 const passport = require ('passport');
 const JwtStrategy = require('passport-jwt').Strategy;
 const router = express.Router();
+
 router.get('/', controller.getAll )
 router.get ('/:id',passport.authenticate('jwt', {session:false  }), controller.getById )
 router.delete ('/:id',passport.authenticate('jwt', {session:false   }), controller.remove )

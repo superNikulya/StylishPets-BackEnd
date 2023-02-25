@@ -29,15 +29,14 @@ module.exports.login = async function (req, res) {
 }
 module.exports.register = async function(req, res) {
     const candidate = await User.findOne({
-    email: req.body.email
-         })
+        email: req.body.email
+    })
 
     if(candidate){
         res.status(409).json({
             message:'Пользователь с таким email уже существует.'
         })
-    }
-        else {
+    } else {
         const salt = await bcrypt.genSaltSync(10)
         const password = await req.body.password
         const user = new User({
@@ -52,4 +51,4 @@ module.exports.register = async function(req, res) {
             console.error(res, e)
         }
     }
-    }
+}

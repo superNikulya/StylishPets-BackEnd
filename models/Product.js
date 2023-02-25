@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const {SchemaTypes} = require("mongoose")
 const Schema = mongoose.Schema
-// нам необходимо создать схему, которуая будет описывать нашу модель посредством переменной мангуса
 const productSchema = new Schema({
     name: {
         type: String,

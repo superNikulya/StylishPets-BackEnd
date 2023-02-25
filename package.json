@@ -1,17 +1,13 @@
 {
   "name": "fullstack",
   "version": "1.0.0",
-  "description": "fullastack angular express app",
+  "description": "node js express server",
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "server": "nodemon index",
-    "client-install": "npm-install --prefix client",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently \",npm run server \" \"npm run client\""
+    "server": "nodemon index"
   },
   "keywords": [
-    "angular",
     "express"
   ],
   "author": "Veronika Yatsenko",
@@ -33,6 +29,13 @@
     "passport-with-roles": "^1.0.3"
   },
   "devDependencies": {
-    "concurrently": "^7.5.0"
+    "concurrently": "^7.5.0",
+    "eslint": "^8.34.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1"
   }
 }

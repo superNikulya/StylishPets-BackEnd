@@ -12,8 +12,8 @@ module.exports.getAll = async  function (req, res) {
 module.exports.getById = async function (req, res) {
     try {
         const category = await Category.findById(req.params.id)
-    res.status(200).json(category)
-     } catch (e) {
+        res.status(200).json(category)
+    } catch (e) {
         errorHandler(res, e)
     }
 }
@@ -38,14 +38,15 @@ module.exports.create = async function (req, res) {
         res.status(201).json(category)
     } catch (e) {
             errorHandler(res, e)
-        }
     }
+}
 module.exports.update = async function (req, res) {
     const updated = {
-    name: req.body.name
+        name: req.body.name
     }
     if (req.file){
-        updated.imageSrc = req.file.path }
+        updated.imageSrc = req.file.path
+    }
     try {
         const category = await Category.findOneAndUpdate(
             {_id: req.params.id},
@@ -53,8 +54,7 @@ module.exports.update = async function (req, res) {
             {new: true}
         )
         res.status(200).json(category)
-    } catch(e)
-    {
+    } catch(e) {
         errorHandler(res, e)
     }
 }
