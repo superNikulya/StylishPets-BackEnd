@@ -9,8 +9,8 @@ const userSchema = new Schema({
     },
     email: {
         type: String,
-        required: true, //дает знать, что поле обязательное (это флаги)
-        unique: true, //проверяет на уникальность
+        required: true,
+        unique: true,
     },
     password: {
         type: String,

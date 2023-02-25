@@ -36,17 +36,17 @@ module.exports.create = async function (req, res) {
             category: req.body.category,
             imageSrc: req.file ? req.file.path : '',
     }).save()
-        res.status(201).json(product) //полсе сохарнения в базу данных придет статутс и ами позиции
+        res.status(201).json(product)
     } catch (e)
     {
         errorHandler(res, e)
     }
 }
-module.exports.remove = async function (req, res) {//данный метод поомгает удалять что-то из базы данных
+module.exports.remove = async function (req, res) {
     try {
         await Product.remove({_id: req.params.id})
         res.status(200).json({
-            message: 'Product was deleted'//полсе сохарнения в базу данных придет статутс и ами позиции
+            message: 'Product was deleted'
         })
     } catch (e) {
         errorHandler(res, e)
@@ -58,8 +58,7 @@ module.exports.update =  async function (req, res) {
         price: req.body.price,
         characteristic: req.body.characteristic
     }
-    if (req.file){//проверяем есть ли у нас в объекте реквест объект файл, если есть
-        // то мы объекту апдейтд его полю имеджсрц присваиваем значение req.file.path
+    if (req.file){
         updated.imageSrc = req.file.path }
     try {
         const product = await Product.findOneAndUpdate(
